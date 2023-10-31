@@ -14,5 +14,5 @@ export default class footBallCountriesDetails extends LightningElement {
         }).catch(error=>{
             this.error = error.body;
         })
-    }
+    }  
 }
