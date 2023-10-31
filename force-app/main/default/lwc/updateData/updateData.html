@@ -1,0 +1,22 @@
+<template>
+    <div class="slds-p-bottom_large slds-p-left_large" style="width:500px">
+        <lightning-record-edit-form record-id={}
+                            onload={handleLoad}
+                            object-api-name="Account">
+    <lightning-messages>
+    </lightning-messages>
+    <lightning-input-field data-field="Name" field-name="Name" value={Account.Name} onchange={handleFieldChange}>
+    </lightning-input-field>
+    <lightning-input-field data-field="NumberOfEmployees" field-name="NumberOfEmployees" value={Account.NumberOfEmployees} onchange={handleFieldChange}>
+    </lightning-input-field>
+    <lightning-input-field data-field="Description" field-name="Description" value={Account.Description} onchange={handleFieldChange}>
+    </lightning-input-field>
+    <lightning-button class="slds-m-top_small"
+                      variant="brand"
+                      name="save"
+                      label="Save"
+                      onclick={saveForm}>
+    </lightning-button>
+</lightning-record-edit-form>
+    </div>
+</template>

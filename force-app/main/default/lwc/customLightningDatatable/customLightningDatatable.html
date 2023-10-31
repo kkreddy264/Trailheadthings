@@ -1,0 +1,32 @@
+<template>
+    <div class="slds-box">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>CreatedDate</th>
+                    <th>Owner Name</th>
+                    <th>Active</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={AccountFields} for:item="item">
+                  <tr key={item}>
+                    <td>{item.Name}</td>
+                    <td>{item.CreatedDate}</td>
+                    <td>{item.Owner.Name}</td>
+                    
+                    <td>
+                        <template if:true={item.Active1__c}>
+                            <lightning-icon class="slds-icon-utility-check slds-icon_x-small slds-icon_container" icon-name="utility:check" style="color: darkgreen;" alternative-text="check" title="check"></lightning-icon>
+                        </template>
+                        <template if:false={item.Active1__c}>
+                            <lightning-icon class="slds-icon-utility-close slds-icon_x-small slds-icon_container" icon-name="utility:close"  alternative-text="close" title="close"></lightning-icon>
+                        </template>
+                    </td>
+                  </tr>
+                </template>
+            </tbody>  
+        </table>
+    </div>
+</template>

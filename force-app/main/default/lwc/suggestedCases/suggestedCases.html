@@ -1,0 +1,12 @@
+<template>
+    <lightning-card>      
+        <p class="slds-p-horizontal_large">Suggested Cases</p>        
+        <div style="height: 200px;">
+            <lightning-datatable 
+                key-field="Id"
+                data={records}
+                columns={columns}>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

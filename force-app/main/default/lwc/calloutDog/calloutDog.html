@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Callout from Lightning Web Component">
+        <lightning-layout>
+            <div class="slds-p-around_small">
+                <lightning-button variant="brand" 
+                    label="Get Cute Dog Picture"
+                    onclick={handleClick}>
+                </lightning-button>
+                <br/><br/>
+                <template if:true={boolShowImage}>
+                    <img src={strUrl} width="400" height="400"/>
+                </template>
+                <template if:true={boolShowSpinner}>
+                    <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+                </template>
+            </div>
+        </lightning-layout>
+    </lightning-card>
+</template>

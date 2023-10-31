@@ -1,0 +1,18 @@
+<template>
+
+    <lightning-quick-action-panel header='Edit Fields Action'>
+        <template if:true={Opportunity}>
+        <lightning-input data-id={recordId} name='amount' label='Amount' type='currency' value={Opportunity.Amount} onchange={handleOnChange}></lightning-input>
+         
+        <lightning-input data-id={recordId} name='nextStep' label='NextStep' type='text' value={Opportunity.NextStep} onchange={handleOnChange}></lightning-input>
+
+        <lightning-input data-id={recordId} name='stageName' label='StageName' type='name' value={Opportunity.StageName} onchange={handleOnChange}></lightning-input>
+
+        <lightning-input data-id={recordId} name='closeDate' label='CloseDate' type='date' value={Opportunity.CloseDate} onchange={handleOnChange}></lightning-input>
+        
+        <lightning-button data-id={recordId} variant='neutral' label='cancel'></lightning-button>
+        <lightning-button data-id={recordId} variant='brand' class='slds-m-left_x-small' label='Update' onclick={handleOnSave}></lightning-button>
+        </template>
+    </lightning-quick-action-panel>
+
+</template>

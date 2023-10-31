@@ -1,0 +1,26 @@
+<template>
+    
+    <lightning-card title="FootBall Countries Details">
+        <div class="slds-p-around_small">
+            <lightning-button variant="brand" label="Get Countries Details" onclick={handleClick}></lightning-button>
+            <table>
+                <thead>
+                    <th>CountryCode</th>
+                    <th>CountryName</th>
+                    <th>Logo</th>
+                </thead>
+                <tbody>
+                    <template for:each={countriesDetails} for:item="item">
+                    <tr key={item.Id}>
+                        <td>{item.code}</td>
+                        <td>{item.name}</td>
+                        <td>
+                            <img src={item.logo} width="200" height="200"/>
+                        </td>
+                    </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </lightning-card>
+</template>

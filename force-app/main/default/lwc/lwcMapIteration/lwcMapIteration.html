@@ -1,0 +1,36 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
+            Iterate Map in Lightning Web Components
+        </h3>
+        <div slot="footer">
+                
+        </div>
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered slds-table_striped">
+                <thead>
+                    <tr class="slds-text-title_caps">
+                        
+                        <th scope="col">
+                            <div title="Key">Opportunity Name (Key)</div>
+                        </th>
+                        <th scope="col">
+                            <div title="Value">Account Name (Value)</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={mapData} for:item="mapKey">
+                        <tr key={mapKey.key}>
+                            <th scope="col">
+                                <div title={mapKey.key}>{mapKey.key}</div>
+                            </th>
+                            <th scope="col">
+                                <div title={mapKey.value}>{mapKey.value}</div>
+                            </th>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+    </lightning-card>
+</template>

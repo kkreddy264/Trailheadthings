@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title=" custom form validation " icon-name="custom:custom12" size="small"> 
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom--medium">
+               <lightning-Input type="text" label="First Name" value={firstName} name="firstName" required="firstName" class="firstName" onchange={handleChangeValidation}></lightning-input>
+            </div>
+            
+            <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom--medium">
+               <lightning-Input type="text"  label="Last Name" value={lastName} name="lastName" required="lastName" class="lastName" onchange={handleChangeValidation}></lightning-input>
+            </div>
+            
+            <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom--medium">
+               <lightning-Input type="text" label="Email" value={userEmail} name="userEmail" required="userEmail" class="userEmail" onchange={handleChangeValidation}></lightning-input>
+            </div>
+            
+            <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom--medium">
+               <lightning-Input type="phone" label="Phone" value={userPhone} name="userPhone" required="userPhone" class="userPhone" onchange={handleChangeValidation}></lightning-input>
+            </div>
+
+            <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom--medium">
+                <lightning-Input type="text" label="City" value={userCity} name="userCity" required="userCity" class="userCity" onchange={handleChangeValidation}></lightning-input>
+             </div>
+    
+            <div class="slds-col slds-size_12-of-12 slds-p-horizontal--medium slds-m-bottom--medium">
+               <lightning-input type="checkbox" label="Status" name="statusCheckbox" required="firstName" class="statusActive" onchange={handleChangeValidation}></lightning-input>
+            </div>
+            
+            
+         </div>
+ 
+<br/><br/>
+    </lightning-card>
+</template>

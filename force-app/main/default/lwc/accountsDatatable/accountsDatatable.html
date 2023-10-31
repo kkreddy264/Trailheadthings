@@ -1,0 +1,15 @@
+<template>
+   
+    
+        <lightning-datatable data={accountsData}
+         columns={columns} 
+         key-field="Id" 
+         onsave={updateSelectedRecords}
+         draft-values={updatedFields}
+         hide-checkbox-column 
+         show-row-number-column
+         >
+        </lightning-datatable>
+    
+    
+</template>

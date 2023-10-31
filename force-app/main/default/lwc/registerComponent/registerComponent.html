@@ -1,0 +1,173 @@
+<template>   
+
+    <template if:true={showTermsAndConditionsLoading}>
+        <lightning-spinner class="termsAndConditionsLoading" alternative-text="Loading" size="medium"></lightning-spinner>
+    </template>
+
+        <template if:true={showTermsAndConditions}>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container terms-and-conditions-modal">
+
+                    <header class="slds-modal__header terms-and-conditions-header">
+                        <button class="slds-button slds-button_icon slds-button_icon-inverse terms-and-conditions-close" title="Close" onclick={closeTermsAndConditions}>
+                            <lightning-icon variant="inverse" icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate"><a href="javascript:void(0);" class="terms-and-conditions-heading">Community Referral Fee Agreement</a></h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium terms-and-conditions-body" id="termsAndConditionsModal">
+                    
+                         <!-- terms and conditions text -->
+
+                        <div class="forceCommunityRichText forceCommunityRichTextInline" data-aura-class="forceCommunityRichText forceCommunityRichTextInline"><div dir="ltr" data-aura-rendered-by="37:2;a" class="uiOutputRichText" data-aura-class="uiOutputRichText">
+                            <p style="text-align: center;"><br></p>
+                            <p><span style="color: rgb(255, 255, 255); font-family: arial; font-size: 16px;">THIS COMMUNITY FEE AGREEMENT"</span></p>
+                            <p><br></p></div><div class="clear" data-aura-rendered-by="39:2;a"></div></div>                        
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+
+        <div class="main-container slds-grid slds-grid_vertical slds-gutters">
+
+            <div class="slds-col slds-var-p-bottom_medium">
+                <p class="text-align-center">
+                    <span class="main-heading register-heading">
+                        Create Your Community Account
+                    </span>
+                </p>
+
+                <template if:true={errorCheck}>
+                    <div class="error slds-var-p-around_x-small slds-var-p-top_small" role="alert">
+                        <span>{errorMessage}</span>
+                    </div>
+                </template>
+
+            </div>
+
+            <div class="slds-col">
+
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left tooltip">
+                        <lightning-icon class="input-icon" icon-name="utility:user" alternative-text="username" size="xx-small"></lightning-icon>
+                        <input type="text" data-id="inputFirstName" placeholder="First Name" class="slds-input input-element" value={firstName} onchange={handleFirstNameChange} required />
+                        <span class={requiredTooltipDisplayData.firstName}>This field is required.</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="slds-col">
+
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left tooltip">
+                        <lightning-icon class="input-icon" icon-name="utility:user" alternative-text="username" size="xx-small"></lightning-icon>
+                        <input type="text" data-id="inputLastName" placeholder="Last Name" class="slds-input input-element" value={lastName} onchange={handleLastNameChange} required />
+                        <span class={requiredTooltipDisplayData.lastName}>This field is required.</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="slds-col tooltipEmail">
+
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left tooltip" onmouseover={handleEmailHover}>
+                        <lightning-icon class="input-icon" icon-name="utility:email" alternative-text="username" size="xx-small"></lightning-icon>
+                        <input type="text" data-id="inputEmail" placeholder="Email" class="slds-input input-element" value={email} onkeyup={handleEmailChange} pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$" oninvalid={onEmailInvalid} oninput={onEmailInput} onclick={onEmailClick} onblur={onEmailBlur} required/>
+                        <span class={requiredTooltipDisplayData.email}>This field is required.</span>
+                        <span class={errorTooltipDisplayData.email}>{emailError}</span>
+                    </div>
+                </div>
+
+            </div>
+			
+                <div class="slds-col usernameColumn">
+    
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left tooltip">
+                            <lightning-icon class="input-icon" icon-name="utility:user" alternative-text="username" size="xx-small"></lightning-icon>
+                            <input type="text" data-id="inputUsername" placeholder="Username" class="slds-input input-element" value={userName} disabled required />
+                            <span class={infoTooltipDisplayData.username}>Username will be used to sign in to Community account</span>
+                            <span class={requiredTooltipDisplayData.username}>This field is required.</span>
+                        </div>
+                    </div>
+    
+                </div>
+
+            <div class="slds-col">
+
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left tooltip">
+                        <lightning-icon class="input-icon" icon-name="utility:user" alternative-text="username" size="xx-small"></lightning-icon>
+                        <input type="text" data-id="inputCompanyName" placeholder="Company Name" class="slds-input input-element" value={companyName} onchange={handleCompanyNameChange} />                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="slds-col">
+
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left tooltip">
+                        <lightning-icon class="input-icon" icon-name="utility:user" alternative-text="username" size="xx-small"></lightning-icon>
+                        <input type="text" data-id="inputHearAboutUs" placeholder="How did you hear about us?" class="slds-input input-element" value={hearAboutUs} onchange={handleHearAboutUsChange} required />
+                        <span class={requiredTooltipDisplayData.hearAboutUs}>This field is required.</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="slds-col">
+
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left tooltip">
+                        <lightning-icon class="input-icon" icon-name="utility:lock" alternative-text="username" size="xx-small"></lightning-icon>
+                        <input type="password" data-id="inputPassword" placeholder="Create Password" class="slds-input input-element" value={password} onchange={handlePasswordChange} pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" required />
+                        <span class={infoTooltipDisplayData.password}>Password must be Minimum eight characters, at least one letter, one number and one special character</span>
+                        <span class={requiredTooltipDisplayData.password}>This field is required.</span>
+                        <span class={errorTooltipDisplayData.password}>{passwordError}</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="slds-col">
+
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left tooltip">
+                        <lightning-icon class="input-icon" icon-name="utility:lock" alternative-text="username" size="xx-small"></lightning-icon>
+                        <input type="password" data-id="inputConfirmPassword" placeholder="Confirm Password" class="slds-input input-element" value={confirmPassword} onchange={handleConfirmPasswordChange} pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" required />
+                        <span class={requiredTooltipDisplayData.confirmPassword}>This field is required.</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="slds-col">
+                <span class="sub-heading">By signing up you are agreeing to our <a class="terms-and-conditions-link" href="javascript:void(0);" onclick={handleTermsAndConditions}>terms and conditions</a></span>
+            </div>
+
+            <div class="slds-col">
+                <button type="submit" class="login-button slds-button" onclick={handleRegister}>Sign Up</button>
+            </div>
+
+            <div class="slds-col">
+                <p class="text-align-center slds-var-p-around_medium">
+                    <a href="/Cydehustle/s/login" class="sub-heading register-heading">Already have an account?</a>
+                </p>
+
+                <p class="text-align-center">
+                    <span class="sub-heading register-heading">If you have any issues please contact</span>
+                </p>
+
+                <p class="text-align-center">
+                    <span class="sub-heading register-heading">Community@hicglobalsolutions.com</span>
+                </p>
+
+            </div>
+
+        </div>  
+    
+</template>

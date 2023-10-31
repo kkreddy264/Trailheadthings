@@ -1,0 +1,50 @@
+<template>
+    <lightning-card title="Contact List">
+        <div class="slds-box">
+            
+                <!-- <template if:true={errors}>
+                    <p>{errors}</p>
+                </template> -->
+        
+                <!-- <lightning-datatable key-field="Id" data={contacts.data}>
+                </lightning-datatable> -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>FirstName</th>
+                                <th>LastName</th>
+                                <th>Email</th>
+                                <th>Level</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <template for:each={data} for:item="Item">
+                                    <tr key={Item}>
+                                        <td>{Item.FirstName}</td>
+                                        <td>{Item.LastName}</td>
+                                        <td>{Item.Email}</td>
+                                        <td>{Item.Level__c}</td>
+                                    </tr>
+                                </template>
+                        </tbody>
+                    </table>
+        </div>
+    </lightning-card>
+    <div class="slds-box">
+        <table>
+            <thead>
+                <tr>
+                    <th>LabelName</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{myLables}</td>
+                    <td>{myLables}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</template>
