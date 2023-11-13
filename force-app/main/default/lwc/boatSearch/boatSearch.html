@@ -1,0 +1,31 @@
+<template>
+    <lightning-layout multiple-rows>
+      <!-- Top -->
+      
+      <lightning-layout-item size="12">
+        <div class="slds-grid slds-wrap">
+          <lightning-card class="slds-size_12-of-12" title="Find a Boat">
+            <!-- New Boat button goes here -->
+            <lightning-button class="slds-float_right" label="New Boat" onclick={createNewBoat} slot="actions"></lightning-button>
+            <p class="slds-var-p-horizontal_small slds-align_absolute-center">
+              <!-- boatSearchForm component goes here -->
+              <c-boat-search-form onsearch={searchBoats}></c-boat-search-form>
+            </p>
+          </lightning-card>
+        </div>
+        
+      </lightning-layout-item>
+      <!-- Bottom -->
+      <lightning-layout-item size="12" class="slds-var-p-top_small slds-is-relative">
+        <!-- Spinner goes here -->
+        <template if:true={isLoading}>
+          <lightning-spinner alternative-text = "Loading" variant="Brand"></lightning-spinner>
+        </template>
+        
+        <!-- boatSearchResults goes here -->
+        <!-- <c-boat-search-results onloading={handleLoading} ondoneloading={handleDoneLoading}></c-boat-search-results> -->
+        
+      </lightning-layout-item>
+    </lightning-layout>
+  </template>
+  
