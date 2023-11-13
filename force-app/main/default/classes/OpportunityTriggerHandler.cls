@@ -80,4 +80,64 @@ public with sharing class OpportunityTriggerHandler {
         update accList;
     }
     
+    Public static void accFieldUpdateBasedOnOpp(List<Opportunity> oppList,Map<Id,Opportunity> oldMap){
+	/** 
+* ───────────────────────────────────────────────────────────────────────────────────────────────────┐
+* @description updating the fields on Account
+* ───────────────────────────────────────────────────────────────────────────────────────────────────
+* @param    oppList,oldMap
+* @void     accFieldUpdateBasedOnOpp
+* ───────────────────────────────────────────────────────────────────────────────────────────────────┘
+**/ 
+		Set<Id> accIds = new Set<Id>();
+        Map<Id,Decimal> accMap = new Map<Id,Decimal>();
+        
+        for(Opportunity oppObj:oppList){
+            if(oppObj.AccountId != NULL){
+                accIds.add(oppObj.AccountId);
+            }
+        }
+        List<Opportunity> accOppList = [SELECT Id,Amount,AccountId,Account.Total_Amount__c 
+                                        FROM Opportunity 
+                                        WHERE AccountId IN:accIds];
+
+		for(Opportunity oppObj:accOppList){
+	
+		
+			if((oppObj.AccountId != NULL && oppObj.Amount !=null) || oldMap.get(oppObj.Id).Amount != oppObj.Amount){
+			
+				if(accMap.containskey(oppObj.AccountId)){
+
+				 oppObj.Account.Total_Amount__c =oppObj.Account.Total_Amount__c+oppObj.Amount; 
+				accMap.put(oppObj.AccountId,oppObj.Account.Total_Amount__c);	
+				}
+				else{	
+				oppObj.Account.Total_Amount__c = oppObj.Amount;
+				accMap.put(oppObj.AccountId,oppObj.Account.Total_Amount__c);
+				}		
+			}
+		}
+		/*for(Opportunity oppObj:oldMap.Values()){
+			
+			if(oppObj.AccountId != NULL && oppObj.Amount !=null 
+			   && accMap.containskey(oppObj.AccountId)){
+				
+				Decimal amt =accMap.get(oppObj.AccountId)-oppObj.Amount; 
+				accMap.put(oppObj.AccountId,amt);
+			}
+		}*/
+
+		List<Account> accList = [SELECT Id,Total_Amount__c FROM Account];
+		List<Account> updateAccList = new List<Account>();
+		for(Account accObj: accList){
+		
+			if(accMap.containskey(accObj.Id)){
+			
+				accObj.Total_Amount__c = accMap.get(accObj.Id);
+				updateAccList.add(accObj);
+			}
+		}
+		update updateAccList;
+   }
+    
 }

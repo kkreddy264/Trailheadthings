@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Add_Review</fullName>
+        <categories>LWC Labels</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add Review</shortDescription>
+        <value>Add Review</value>
+    </labels>
+    <labels>
+        <fullName>Details</fullName>
+        <categories>LWC Labels</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Details</shortDescription>
+        <value>Details</value>
+    </labels>
+    <labels>
+        <fullName>Email</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Email</shortDescription>
+        <value>Please enter the mail in correct format</value>
+    </labels>
+    <labels>
+        <fullName>Full_Details</fullName>
+        <categories>LWC Labels</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Full Details</shortDescription>
+        <value>Full Details</value>
+    </labels>
+    <labels>
+        <fullName>Level_Field_Status</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Level Field Status</shortDescription>
+        <value>The value of level field is changed successfully.</value>
+    </labels>
+    <labels>
+        <fullName>Owner</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Owner</shortDescription>
+        <value>Please fill the Mandatory fields.</value>
+    </labels>
+    <labels>
+        <fullName>PhoneNumber</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PhoneNumber</shortDescription>
+        <value>Not more than ten digits</value>
+    </labels>
+    <labels>
+        <fullName>Please_select_a_boat</fullName>
+        <categories>LWC Labels</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please select a boat</shortDescription>
+        <value>Please select a boat :)</value>
+    </labels>
+    <labels>
+        <fullName>Public_Site_For_Users</fullName>
+        <categories>PageUrl</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Public Site For Users</shortDescription>
+        <value>jack264-developer-edition.na163.force.com</value>
+    </labels>
+    <labels>
+        <fullName>Reviews</fullName>
+        <categories>LWC Labels</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Reviews</shortDescription>
+        <value>Reviews</value>
+    </labels>
+    <labels>
+        <fullName>Status</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Status</shortDescription>
+        <value>Status changed successfully.</value>
+    </labels>
+</CustomLabels>
