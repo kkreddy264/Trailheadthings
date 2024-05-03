@@ -20,7 +20,7 @@ public class callWebserviceClass {
         system.debug('Instance url' + wResp.instance_url);
         system.debug('session id' + wResp.access_token);
         return wResp.access_token;
-    }
+    }   
     @future(callout = true)
     public static void getConList(Set<id> conIdSet) {
         String accToken;

@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="N-Level Dependent Lookup Search Component" icon-name="custom:custom57">
+        <div class="slds-p-around_small slds-box">
+            <c-reusable-lookup onvalueselected={handleValueSelectedOnAccount}></c-reusable-lookup>
+            <c-reusable-lookup if:true={parentAccountSelectedRecord} label="Select Contact"
+                selected-icon-name="standard:contact" object-label="Contact" object-api-name="Contact"
+                field-api-name="Name" other-field-api-name="Email" parent-record-id={parentAccountSelectedRecord.id}
+                parent-field-api-name="AccountId" onvalueselected={handleValueSelectedOnContact}></c-reusable-lookup>
+            <c-reusable-lookup if:true={parentContactSelectedRecord} label="Select Case"
+                selected-icon-name="standard:case" object-label="Case" object-api-name="Case" field-api-name="Subject"
+                other-field-api-name="Origin" parent-record-id={parentContactSelectedRecord.id}
+                parent-field-api-name="ContactId" onvalueselected={handleValueSelectedOnContact}></c-reusable-lookup>
+        </div>
+    </lightning-card>
+</template>
