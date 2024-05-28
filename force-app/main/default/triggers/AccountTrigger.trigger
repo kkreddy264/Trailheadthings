@@ -1,4 +1,3 @@
-trigger AccountTrigger on Account (before update) {
-
-    AccountTriggerHandler.getAccType((List<Account>)Trigger.new);
+trigger AccountTrigger on Account (before insert, before update, before delete) {
+    new AccountTriggerHandler().run();
 }

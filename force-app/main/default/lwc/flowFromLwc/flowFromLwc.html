@@ -1,0 +1,12 @@
+<template>
+    <template lwc:if={messageFromFlow}>
+        <div class="scroller slds-card">
+            <pre>{messageFromFlow}</pre>
+        </div>
+    </template>
+    <template lwc:else>
+        <lightning-flow flow-api-name='New_Account' flow-input-variables={inputVariables}
+            onstatuschange={handleStatusChange} flow-finish-behavior="NONE">
+        </lightning-flow>
+    </template>
+</template>

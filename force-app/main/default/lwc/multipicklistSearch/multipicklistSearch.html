@@ -1,0 +1,18 @@
+<template>
+    <div class="slds-var-p-around_medium">
+        <div class="slds-grid slds-gutters slds-var-p-bottom_medium">
+            <div class="slds-col">
+                <lightning-input type="text" label="Search Picklist Available values"
+                    onchange={handleAvailableSearch}></lightning-input>
+            </div>
+            <div class="slds-col">
+                <lightning-input type="text" label="Search Picklist Selected values"
+                    onchange={handleSelectedSearch}></lightning-input>
+            </div>
+        </div>
+        <lightning-dual-listbox name="languages" label="Select Languages" source-label="Available"
+            selected-label="Selected" field-level-help="Select your preferred languages" options={options}
+            onchange={handleChange} value={selected}>
+        </lightning-dual-listbox>
+    </div>
+</template>
