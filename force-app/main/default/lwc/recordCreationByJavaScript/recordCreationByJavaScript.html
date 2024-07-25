@@ -1,0 +1,9 @@
+<template>
+    <div>
+        <lightning-input type="input" label="First Name" name="FirstName" value={FirstName} onchange={changedValues}></lightning-input>
+        <lightning-input type="input" label="Last Name" name="LastName" value={LastName} onchange={changedValues}></lightning-input>
+        <lightning-input type="input" label="Email" name="Email" value={Email} onchange={changedValues}></lightning-input>
+        <lightning-input type="input" label="Phone" name="Phone" value={Phone} onchange={changedValues}></lightning-input>
+        <lightning-button variant="brand" label="Submit" onclick={handleCreate}></lightning-button>
+    </div>
+</template>

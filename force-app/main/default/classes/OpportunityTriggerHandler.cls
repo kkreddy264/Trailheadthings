@@ -80,7 +80,7 @@ public with sharing class OpportunityTriggerHandler {
         update accList;
     }
     
-    Public static void accFieldUpdateBasedOnOpp(List<Opportunity> oppList,Map<Id,Opportunity> oldMap){
+    public static void accFieldUpdateBasedOnOpp(List<Opportunity> oppList,Map<Id,Opportunity> oldMap){
 	/** 
 * ───────────────────────────────────────────────────────────────────────────────────────────────────┐
 * @description updating the fields on Account

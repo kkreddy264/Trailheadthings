@@ -156,6 +156,7 @@ public virtual class TriggerHandler {
       if(!this.isTriggerExecuting || this.context == null) {
         throw new TriggerHandlerException('Trigger handler called outside of Trigger execution');
       }
+      System.debug('HandlerName'+ getHandlerName());
       return !TriggerHandler.bypassedHandlers.contains(getHandlerName());
     }
   
