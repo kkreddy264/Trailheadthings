@@ -6,19 +6,10 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
     public override void afterUpdate(){
 
         Map<Id,String> accIdMap = new Map<Id,String>();
-        List<Account> clonedAccsList = new List<Account>();
-        Map<Id,List<String>> clonedAccsMap = new Map<Id,List<String>>();
-        List<Opportunity> oppList = new List<Opportunity>();
 
         for(Account accObj: (List<Account>)Trigger.new){
             
             if(accObj.OwnerId != null){
-                
-                if(accObj.Cloned__c == true){
-                    accObj.clone(false, true, false, false);
-                    clonedAccsList.add(accObj);
-                }
-
                 for(Account accObj1: (List<Account>)Trigger.old){
                     if(accObj.OwnerId != accObj1.OwnerId){
                         accIdMap.put(accObj.Id, accObj.OwnerId);
@@ -33,13 +24,30 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
             conObj.OwnerId = accIdMap.get(conObj.AccountId);
             listToUpdateContactFields.add(conObj);
         }
+        
+        update listToUpdateContactFields;
+        
+    }
+    public override void afterInsert(){
+
+        List<Account> clonedAccsList = new List<Account>();
+        Map<Id,List<String>> clonedAccsMap = new Map<Id,List<String>>();
+        List<Opportunity> oppList = new List<Opportunity>();
+
+        for(Account accObj: (List<Account>)Trigger.new){
+
+            if(accObj.Cloned__c == true){
+                    Account clonedAccount = accObj.clone(false, true, false, false);
+                    clonedAccsList.add(clonedAccount);
+                }
+        }
         if(!clonedAccsList.isEmpty()){
-            clonedAccsList;
+            insert clonedAccsList;
         }
         for(Account accObj: clonedAccsList){
 
             Id sourceId = accObj.getCloneSourceId();
-            if(!clonedAccsMap.containsKey(accObj.getCloneSourceId()) && sourceId != null){
+            if(!clonedAccsMap.containsKey(sourceId) && sourceId != null){
                 clonedAccsMap.put(sourceId,new List<String>{accObj.Name});
             }
             else {
@@ -64,7 +72,6 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
                 } 
             }
         }
-        update listToUpdateContactFields;
         update oppList;
     }
 }

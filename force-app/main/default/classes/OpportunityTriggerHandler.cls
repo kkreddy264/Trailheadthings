@@ -32,7 +32,7 @@ public with sharing class OpportunityTriggerHandler {
         
         
         for (Opportunity oppObj : oppList) {
-            associatedAccId.add(oppObj.AccountId) ;
+            associatedAccId.add(oppObj.AccountId);
         }
         
         
